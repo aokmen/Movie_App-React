@@ -13,7 +13,7 @@ const MovieCard = ({ poster_path, title, overview, vote_average, id }) => {
   const { currentUser } = useContext(AuthContex);
   const navigate = useNavigate();
 
-  const getVoteClass = (vote) => {
+  const getVoteClass = (vote) => { 
     if (vote >= 8) {
       return "green";
     } else if (vote >= 6) {
