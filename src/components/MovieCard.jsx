@@ -33,7 +33,7 @@ const defaultImage = "https://images.unsplash.com/photo-1581905764498-f1b60bae94
     >
       <img
         loading="lazy"
-        src={poster_path ? IMG_API + poster_path : defaultImage}
+        src={IMG_API + poster_path || defaultImage}
         alt="movie-card"
       />
       <div className="flex align-baseline justify-between p-1 text-white">
