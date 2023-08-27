@@ -1,40 +1,64 @@
-import React, { useContext, useState } from "react";
-import { MovieContext } from "../context/MovieContext";
+import React, { useContext, useEffect, useState } from "react";
+import axios from "axios";
 import MovieCard from "../components/MovieCard";
 
-const API_KEY = process.env.REACT_APP_TMDB_KEY;
 
-//! arama yapıldığında kullanılacak url
+import { AuthContex } from "../context/AuthContext";
+import { toastWarnNotify } from "../helpers/TostNotify";
+
+const API_KEY = process.env.REACT_APP_TMDB_KEY;
+const FEATURED_API = `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`;
 const SEARCH_API = `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`;
 
 const Main = () => {
-  const[search,setSearch]=useState("")
+  const [movies, setMovies] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [loading, setLoading] = useState(false);
+  const { currentUser } = useContext(AuthContex);
 
-  const {movie,getMovies}=useContext(MovieContext)
+  useEffect(() => {
+    getMovies(FEATURED_API);
+  }, []);
 
+  const getMovies = (API) => {
+    setLoading(true);
+    axios
+      .get(API)
+      .then((res) => setMovies(res.data.results))
+      .catch((err) => console.log(err))
+      .finally(() => setLoading(false));
+  };
 
-const handleSubmit=(e)=>{
-e.preventDefault()
-getMovies(SEARCH_API+search)
-}
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (searchTerm && currentUser) {
+      getMovies(SEARCH_API + searchTerm);
+      setSearchTerm("");
+    } else if (!currentUser) {
+      toastWarnNotify("Please log in to search a movie");
+      // alert("please log in to see details");
+    } else {
+      toastWarnNotify("Please enter a text");
+      // alert("please enter a text");
+    }
+  };
 
   return (
     <>
-      <form className="flex justify-center p-2" 
-      onSubmit={handleSubmit}
-      >
+      <form className="flex justify-center p-2" onSubmit={handleSubmit}>
         <input
           type="search"
-          className="w-80 h-8 rounded-md p-1 m-2"
+          className="w-80 h-8 rounded-md outline-none border p-1 m-2"
           placeholder="Search a movie..."
-          onChange={(e)=>setSearch(e.target.value)}
+          onChange={(e) => setSearchTerm(e.target.value)}
+          value={searchTerm}
         />
-        <button className="btn-danger-bordered" type="submit">
+        <button className="dark:text-white" type="submit">
           Search
         </button>
       </form>
       <div className="flex justify-center flex-wrap">
-            {/* {"" ? (
+        {loading ? (
           <div
             className="spinner-border animate-spin inline-block w-8 h-8 border-4 rounded-full text-blue-600 mt-52"
             role="status"
@@ -42,13 +66,11 @@ getMovies(SEARCH_API+search)
             <span className="visually-hidden">Loading...</span>
           </div>
         ) : (
-        ""
-        )} */}
-     {movie.map((a)=><MovieCard key={a.id} {...a} />)}
+          movies.map((movie) => <MovieCard key={movie.id} {...movie} />)
+        )}
       </div>
     </>
   );
 };
 
 export default Main;
-

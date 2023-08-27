@@ -34,7 +34,7 @@ const MovieCard = ({ poster_path, title, overview, vote_average, id }) => {
       <img
         loading="lazy"
 
-        src={IMG_API + poster_path || defaultImage}
+        src={poster_path ? IMG_API + poster_path : defaultImage}
         alt="movie-card"
       />
       <div className="flex align-baseline justify-between p-1 text-white">

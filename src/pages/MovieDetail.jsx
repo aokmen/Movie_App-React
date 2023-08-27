@@ -51,7 +51,7 @@ const MovieDetail = () => {
         <div className="flex flex-col lg:flex-row max-w-6xl rounded-lg bg-gray-100 shadow-lg">
           <img
             className=" lg:w-1/3 h-96 lg:h-[600px] object-cover rounded-t-lg md:rounded-none md:rounded-l-lg"
-            src={imageUrl+poster_path || defaultImage}
+            src={poster_path ? imageUrl + poster_path : defaultImage}
             alt="poster"
           />
           <div className="p-6 flex flex-col justify-between">
