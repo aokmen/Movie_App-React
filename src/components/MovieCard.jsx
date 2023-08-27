@@ -4,12 +4,12 @@ import { useNavigate } from "react-router-dom";
 import { toastWarnNotify } from "../helpers/TostNotify";
 import { AuthContex } from "../context/AuthContext";
 
-
+const IMG_API = "https://image.tmdb.org/t/p/w1280";
+const defaultImage = "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
 
 
 const MovieCard = ({ poster_path, title, overview, vote_average, id }) => {
-  const IMG_API = "https://image.tmdb.org/t/p/w1280";
-const defaultImage = "https://images.unsplash.com/photo-1581905764498-f1b60bae941a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=700&q=80";
+
 
   const { currentUser } = useContext(AuthContex);
   const navigate = useNavigate();
@@ -33,6 +33,7 @@ const defaultImage = "https://images.unsplash.com/photo-1581905764498-f1b60bae94
     >
       <img
         loading="lazy"
+
         src={IMG_API + poster_path || defaultImage}
         alt="movie-card"
       />
