@@ -1,8 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import MovieCard from "../components/MovieCard";
-
-
 import { AuthContex } from "../context/AuthContext";
 import { toastWarnNotify } from "../helpers/TostNotify";
 
