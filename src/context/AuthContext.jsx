@@ -72,7 +72,7 @@ const AuthContextProvider = ({ children }) => {
         navigate("/")
       })
       .catch((error) => {
-        toastErrorNotify(error.message);
+        console.log(error);
       });
 
   };
