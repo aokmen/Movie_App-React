@@ -1,18 +1,21 @@
 import React, { useContext, useState } from "react";
 import GoogleIcon from "../assets/icons/GoogleIcon";
 import { AuthContex } from "../context/AuthContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = () => {
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")
   const {signIn,signUpGoogle,forgotPassword} = useContext(AuthContex)
-  
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
       e.preventDefault()
       signIn(email,password)
     }
+    const handleGoogleProvider = () => {
+      signUpGoogle(navigate);
+    };
 
   return <div className="overflow-hidden flex-1 h-screen justify-center items-center bg-[#23242a]">
       <div className="form-container mt-[5vh] w-[380px] h-[580px]">
@@ -66,7 +69,7 @@ const Login = () => {
           <button
             type="button"
             className="btn-danger flex justify-between text-center items-center"
-            onClick={signUpGoogle}
+            onClick={handleGoogleProvider}
           >
             Continue with Google
             <GoogleIcon color="currentColor" />
