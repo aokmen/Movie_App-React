@@ -29,9 +29,7 @@ export default function Navbar() {
           <div className="relative flex  items-center justify-between">
             <Link to="/">React Movie App</Link>
             <div className="absolute inset-y-0 right-0 flex items-center ">
-            {currentUser && (
-              <h5 className="mr-2 capitalize">{currentUser?.displayName}</h5>
-            )}
+              {currentUser && <h5> {currentUser?.displayName}</h5>}
               {/* referrerPolicy="no-referrer" google ile bağlanmada hata almamak için */}
               {/* Profile dropdown */}
               <Switch/>
