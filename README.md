@@ -1,13 +1,12 @@
 # Movie_App-React
 
+<h3>Visit: https://movie-app-react-firebase-api.netlify.app/</h3>
 
+<img alt="alt_text" src="./movie.gif"/>
 ## Description
 
 Project aims to create a Movie App.
 
-## Problem Statement
-
-- We are adding a new project to our portfolios. So you and your colleagues have started to work on the project.
 
 ## Project Skeleton
 
@@ -42,11 +41,7 @@ SOLUTION
 └── yarn.lock
 ```
 
-![Project Snapshot](movie-app_structure.png)
 
-## Expected Outcome
-
-![Project Snapshot](movie-app.gif)
 
 ## Objective
 
