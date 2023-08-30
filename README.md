@@ -53,7 +53,7 @@ Build a Movie App using ReactJS.
 
 - CSS
 
-- JS
+- JS 
 
 - ReactJS
 
