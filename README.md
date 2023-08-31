@@ -65,9 +65,7 @@ Build a Movie App using ReactJS.
 
 ## Steps to Solution
 
-- Before start you can watch these tutorials:
-  - https://www.youtube.com/watch?v=9bXhf_TELP4
-  - https://www.youtube.com/watch?v=vDT7EnUpEoo
+
 - Step 1 : Create React App using `npx create-react-app movie-app` and install firebase `npm i firebase` / `yarn add firebase`
 
 - Step 2 : Signup `https://firebase.google.com/` and create new app in firebase.
