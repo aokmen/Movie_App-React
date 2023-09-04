@@ -44,19 +44,57 @@ SOLUTION
 
 
 
-## Objective
+# React Movie App
 
-Build a Movie App using ReactJS.
+## Project Description
 
-### At the end of the project, following topics are to be covered;
+This is a web application developed using React for browsing and exploring movies. Users can search for movies, view movie details, and log in or register to access additional features. The app also offers a dark mode for enhanced user experience.
 
-- HTML
+## Features
 
-- CSS
+### Authentication:
 
-- JS 
+- Users can create accounts and log in using their email and password.
+- Alternatively, users can log in using their Google accounts.
+- Password reset functionality is available for registered users.
 
-- ReactJS
+### Dark Mode:
+
+- Users can easily switch between light and dark modes for a personalized viewing experience.
+
+### Movie Browser:
+
+- The app provides a search feature, allowing users to search for movies by title.
+- Search results are displayed as movie cards, complete with images and basic information.
+- Each movie card includes a rating badge based on the movie's average vote.
+
+### Movie Details:
+
+- Users can click on a movie card to access detailed information about a movie.
+- Detailed information includes the movie's title, release date, overview, and average vote.
+- An embedded video trailer enhances the movie details page.
+
+### Navigation:
+
+- The navigation bar facilitates easy movement between different pages.
+- Available navigation options include Home, Register, and Login pages.
+- Registered users can also log out using the navigation bar.
+
+### Responsive Design:
+
+- The application offers a responsive design that adjusts to different screen sizes.
+
+## Tech Stack
+
+- React (Frontend)
+- Tailwind CSS (Styling)
+- Firebase (Authentication)
+- The Movie Database (TMDb) API (Movie Data)
+- YouTube API (Movie Trailers)
+
+## Getting Started
+
+To run this project locally, follow these steps:
 
 ### At the end of the project
 
@@ -188,6 +226,5 @@ sendPasswordResetEmail(auth, email)
   });
 ```
 
-- Step 4 : Signup `https://www.themoviedb.org/documentation/api` and get API key. In order to get data use `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}`, to search movies use `https://api.themoviedb.org/3/search/movie?api_key=${API_KEY}&query=`, to get movie details use `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}` and to get video key use `https://api.themoviedb.org/3/movie/${id}/videos?api_key=${API_KEY}`. Use `https://image.tmdb.org/t/p/w1280${poster_path}` for image `src`.
 
 
