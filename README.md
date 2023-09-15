@@ -7,7 +7,7 @@
 
 Project aims to create a Movie App.
 
-
+ 
 ## Project Skeleton
 
 ```
